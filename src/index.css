@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap");
+
+:root {
+  --primary: #e659cab5;
+}
+
+:root {
+  --purple: #a98eeb;
+  --secondary: #cfcdcd;
+  --error: #f58e8e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+}
+
+/* base styles & title */
+body {
+  font-family: "Noto Serif";
+  color: var(--secondary);
+  text-align: center;
+}
+.App {
+  max-width: 960px;
+  margin: 0 auto;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  margin: 5px;
+}
+.title h1 {
+  color: var(--purple);
+  font-size: 1.6rem;
+  letter-spacing: 2.4px;
+  font-weight: 200;
+}
+
+/* upload form styles */
+form {
+  margin: 30px auto 10px;
+  text-align: center;
+}
+label input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+label {
+  display: block;
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  margin: 10px auto;
+  line-height: 30px;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.output {
+  height: 60px;
+  font-size: 0.7rem;
+}
+.error {
+  color: var(--error);
+}
+
+/* progress bar styles */
+.progress-bar {
+  height: 5px;
+  background: var(--primary);
+  margin-top: 20px;
+}
+
+/* image grid styles */
+.img-grid {
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+}
+.img-wrap {
+  overflow: hidden;
+  height: 0;
+  padding: 50% 0;
+  /* padding controls height, will always be perfectly square regardless of width */
+  position: relative;
+  opacity: 0.8;
+}
+.img-wrap img {
+  min-width: 100%;
+  min-height: 100%;
+  max-width: 150%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* modal styles */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.backdrop img {
+  display: block;
+  max-width: 60%;
+  max-height: 80%;
+  margin: 60px auto;
+  box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+  border: 3px solid white;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 15px 20px;
+  color: #fff;
+  border-radius: 30px;
+  font-size: 16px;
+  letter-spacing: 1px;
+  background: var(--purple);
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+button:focus {
+  border: 2px solid white;
+}
+button:hover {
+  transform: scale(1.1);
+}
+
+/* LOGIN */
+
+.login {
+  width: 100%;
+  min-height: 80vh;
+  padding: 0 20px;
+  display: flex;
+}
+
+.login .loginContainer {
+  padding: 60px;
+  margin: auto;
+  width: 100%;
+  max-width: 520px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(190, 189, 189);
+  box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.8);
+  filter: blur(0);
+}
+
+.login .loginContainer label {
+  color: white;
+  margin: 14px 0;
+  display: block;
+  font-size: 22px;
+  line-height: 1;
+  font-weight: lighter;
+}
+
+.login .loginContainer input {
+  width: 100%;
+  border: 1px solid white;
+  outline: none;
+  font-size: 19px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: lighter;
+}
+.login .loginContainer input:focus {
+  border: 2px solid var(--purple);
+}
+
+.login .loginContainer .btnContainer {
+  width: 100%;
+  padding: 24px 0;
+}
+
+.login .loginContainer .btnContainer p {
+  margin: 14px 0 0 0;
+  text-align: right;
+  color: #fff;
+}
+
+.login .loginContainer .btnContainer p span {
+  color: var(--purple);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 400ms ease-in-out;
+}
+
+.login .loginContainer .btnContainer p span:hover {
+  color: red;
+}
+
+.login .loginContainer .errorMsg {
+  color: red;
+  font-size: 16px;
+}
+.username {
+  color: var(--purple);
+  margin-left: 3px;
+}
+
+.file-upload {
+  display: none;
+}
+
+.custom-file-upload {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+p {
+  margin: 20px;
+  font-size: 18px;
+}
