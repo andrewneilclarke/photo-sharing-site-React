@@ -34,6 +34,8 @@ function App() {
           case 'auth/user-not-found':
             setEmailError(err.message);
             break;
+          default:
+            return;
         }
       })
   }
@@ -50,6 +52,8 @@ function App() {
           case 'auth/weak-password':
             setPassworError(err.message);
             break; 
+          default:
+            return;
         }
       })
   }
@@ -58,23 +62,21 @@ function App() {
     auth.signOut();
   }
 
-  const authListener = () => {
-    auth.onAuthStateChanged(user => {
-      if (user){
-        clearInputs();
-        setUser(user)
-      } else {
-        setUser('')
-      }
-    })
-  }
+
 
   useEffect(() => {
-    authListener();
-    return () => {
-      console.log('cleanup')
+    const authListener = () => {
+      auth.onAuthStateChanged(user => {
+        if (user){
+          clearInputs();
+          setUser(user)
+        } else {
+          setUser('')
+        }
+      })
     }
-  }, [])
+    authListener();
+  }, [user])
 
   return (
     <div className="App">
